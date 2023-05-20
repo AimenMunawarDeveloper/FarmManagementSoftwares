@@ -56,3 +56,18 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+Use farm;
+-- Get all table entires
+SELECT * from employee;
+SELECT * from animal;
+-- Get a row in table
+INSERT INTO employee(idemployee, firstName, salary, address, cnic, lastName, email, phone, education, designation, department, username, password)values("0", "Aimen", "50,000", "Street:45, House NO: 788, Sector: G11/2", "61234-8365276-0", "Munawar", "aimenmunawaroffical@gmail.com", "+91 333 5467876" ,"BBA", "Software Engineer", "Front-end Development","aimen404", "aimen404");
+INSERT INTO animal(idanimal, name, weight, height, age, dateOfBirth, description, price, animalID, boughtFrom, careTaker, type) values("0", "Cow", "45.6", "24", "10", "04/03/2023", "", "24,2365", "2342141", "Ahmed Ali", "Ali Imran", "Mammal");
+-- login get all values tghat satisfy a condiiton
+SELECT * from employee where username="aimen404" and password = "aimen404";
+-- Delete a row where in condiiton
+Delete from employee where idemployee = "1" and username = "ayesha";
+-- Update a table where condition
+UPDATE employee
+SET salary = '2,332,343,43', firstName="Amanchoo"
+WHERE idemployee = "0";
