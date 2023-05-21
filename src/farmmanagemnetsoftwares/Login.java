@@ -7,6 +7,8 @@ import java.sql.*;
 
 public class Login extends JFrame implements ActionListener {
 
+    JTextField tfusername, tfpassword;
+
     Login() {
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
@@ -15,7 +17,7 @@ public class Login extends JFrame implements ActionListener {
         lblusername.setBounds(40, 20, 100, 30);
         add(lblusername);
 
-        JTextField tfusername = new JTextField();
+        tfusername = new JTextField();
         tfusername.setBounds(150, 20, 150, 30);
         add(tfusername);
 
@@ -23,7 +25,7 @@ public class Login extends JFrame implements ActionListener {
         lblpassword.setBounds(40, 70, 100, 30);
         add(lblpassword);
 
-        JTextField tfpassword = new JTextField();
+        tfpassword = new JTextField();
         tfpassword.setBounds(150, 70, 150, 30);
         add(tfpassword);
 
@@ -47,7 +49,25 @@ public class Login extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
+        try {
+            String username = tfusername.getText();
+            String password = tfpassword.getText();
 
+            databaseConnection c = new databaseConnection();
+            String query = "select * from employee where username = '" + username + "' and password = '" + password + "'";
+
+            ResultSet rs = c.s.executeQuery(query);
+            if (rs.next()) {
+                setVisible(false);
+                // next class
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid username or password");
+                setVisible(false);
+            }
+      
+        } catch (Exception e) {
+
+        }
     }
 
     public static void main(String[] args) {

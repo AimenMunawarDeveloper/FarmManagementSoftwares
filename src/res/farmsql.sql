@@ -69,5 +69,5 @@ SELECT * from employee where username="aimen404" and password = "aimen404";
 Delete from employee where idemployee = "1" and username = "ayesha";
 -- Update a table where condition
 UPDATE employee
-SET salary = '2,332,343,43', firstName="Amanchoo"
+SET salary = 2,332,343,43', firstName="Amanchoo"
 WHERE idemployee = "0";
